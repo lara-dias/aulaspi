@@ -1,0 +1,3 @@
+#aula pi
+
+Esse repositório foi criado para conter os códigos fontes do projeto de eventos para aprender Spring Boot.

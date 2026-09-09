@@ -14,7 +14,7 @@ public class Evento {
 	private String nome;
 	private String local;
 	private String data;
-	private String horário;
+	private String horario;
 	
 	
 
@@ -50,17 +50,17 @@ public class Evento {
 		this.data = data;
 	}
 
-	public String getHorário() {
-		return horário;
+	public String getHorario() {
+		return horario;
 	}
 
-	public void setHorário(String horário) {
-		this.horário = horário;
+	public void setHorario(String horario) {
+		this.horario = horario;
 	}
 
 	@Override
 	public String toString() {
-		return "Evento [id=" + id + ", nome=" + nome + ", local=" + local + ", data=" + data + ", horário=" + horário
+		return "Evento [id=" + id + ", nome=" + nome + ", local=" + local + ", data=" + data + ", horario=" + horario
 				+ "]";
 	}
 

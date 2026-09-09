@@ -10,6 +10,6 @@ public class IndexController {
 	@RequestMapping("/")
 	public String Index() {
 		System.out.println("chamou o método index");
-		return"home";
+		return"redirect:/eventos";
 	}
 }

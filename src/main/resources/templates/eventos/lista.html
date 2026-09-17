@@ -14,7 +14,7 @@
 
 		<h1>Lista de Eventos</h1>
 
-		<table>
+		<table class="highlight">
 
 			<thead>
 				<tr>
@@ -29,12 +29,13 @@
 			<tbody>
 				<tr th:each="e : ${eventos}">
 					<td th:text="${e.id}">1</td>
-					<td th:text="${e.nome}">Aniversário</td>
+					<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span th:text="${e.nome}">Aniversário</span>
+					</a></td>
 					<td th:text="${e.local}">Piscina</td>
 					<td th:text="${e.data}">14/04</td>
 					<td th:text="${e.horario}">15:00</td>
 				</tr>
-				
+
 			</tbody>
 		</table>
 	</div>

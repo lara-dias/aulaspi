@@ -52,39 +52,51 @@ public class EventosController {
 	public ModelAndView detalhar(@PathVariable Long id) {
 		ModelAndView md = new ModelAndView();
 		Optional<Evento> opt = er.findById(id);
-		
+
 		if (opt.isEmpty()) {
 			md.setViewName("redirect:/eventos");
 			return md;
 		}
-		
+
 		md.setViewName("eventos/detalhes");
 		Evento evento = opt.get();
 		md.addObject("evento", evento);
-		
-		List<Convidado> convidados = cr.findByEvento(evento); 
+
+		List<Convidado> convidados = cr.findByEvento(evento);
 		md.addObject("convidados", convidados);
-		
+
 		return md;
 	}
-	
+
 	@PostMapping("/{idEvento}")
 	public String salvarConvidado(@PathVariable Long idEvento, Convidado convidado) {
-		
+
 		System.out.println("Id do evento: " + idEvento);
 		System.out.println(convidado);
-		
+
 		Optional<Evento> opt = er.findById(idEvento);
-		if(opt.isEmpty()) {
+		if (opt.isEmpty()) {
 			return "redirect:/eventos";
 		}
-		
+
 		Evento evento = opt.get();
 		convidado.setEvento(evento);
-		
+
 		cr.save(convidado);
-		
-		
+
 		return "redirect:/eventos/{idEvento}";
-}
+	}
+	
+    @GetMapping("/{id}/remover")
+	public String apagarEvento(@PathVariable Long id) {
+
+		Optional<Evento> opt = er.findById(id);
+
+		if (!opt.isEmpty()) {
+			Evento evento = opt.get();
+			er.delete(evento);
+		}
+
+		return "redirect:/eventos";
+	}
 }
